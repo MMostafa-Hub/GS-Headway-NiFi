@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nifi:
+    image: apache/nifi:latest
+    ports:
+      - '8080:8080'
+    environment:
+      - NIFI_WEB_HTTP_PORT=8080
+      - NIFI_WEB_HTTP_HOST=0.0.0.0
+      - NIFI_SECURITY_USER_LOGIN_IDENTITY_PROVIDER=mmostafa
+      - NIFI_SECURITY_USER_ADMIN=admin
+      - NIFI_SECURITY_USER_ADMIN_GROUP=admin
+      - NIFI_SECURITY_USER_ADMIN_PASSWORD=mypassword
+
+    volumes:
+      - ./nifi_loader:/nifi_folder
